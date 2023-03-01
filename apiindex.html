@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Footprint Aggregator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+</head>
+<body>
+    <h1>Online Footprint Aggregator</h1>
+    <h2>Reddit Saves</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>URL</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in online_data.Reddit %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td><a href="{{ post.url }}" target="_blank">{{ post.url }}</a></td>
+                <td>{{ post.date.strftime('%m/%d/%Y %I:%M %p') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Instagram Saves</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>URL</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in online_data.Instagram %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td><a href="{{ post.url }}" target="_blank">{{ post.url }}</a></td>
+                <td>{{ post.date.strftime('%m/%d/%Y %I:%M %p') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>TikTok Saves</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>URL</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in online_data.TikTok %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td><a href="{{ post.url }}" target="_blank">{{ post.url }}</a></td>
+                <td>{{ post.date.strftime('%m/%d/%Y %I:%M %p') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
